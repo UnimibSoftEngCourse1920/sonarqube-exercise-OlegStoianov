@@ -120,7 +120,7 @@ public class Result implements Serializable {
         serializedForm = SerializedForm.deserialize(s);
     }
 
-    private Object readResolve()  {
+    protected Object readResolve()  {
         return new Result(serializedForm);
     }
 
