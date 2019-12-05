@@ -35,7 +35,7 @@ public abstract class PotentialAssignment {
                 } else {
                     try {
                         valueString = format("\"%s\"", value);
-                    } catch (Throwable e) {
+                    } catch (Exception e) {
                         valueString = format("[toString() threw %s: %s]", 
                                              e.getClass().getSimpleName(), e.getMessage());
                     }
