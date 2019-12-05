@@ -16,7 +16,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.Test.None;
 import org.junit.internal.runners.model.ReflectiveCallable;
-import org.junit.internal.runners.statements.ExpectException;
+import org.junit.internal.runners.statements.ExpectAnamoly;
 import org.junit.internal.runners.statements.Fail;
 import org.junit.internal.runners.statements.FailOnTimeout;
 import org.junit.internal.runners.statements.InvokeMethod;
@@ -344,7 +344,7 @@ public class BlockJUnit4ClassRunner extends ParentRunner<FrameworkMethod> {
             Object test, Statement next) {
         Test annotation = method.getAnnotation(Test.class);
         Class<? extends Throwable> expectedExceptionClass = getExpectedException(annotation);
-        return expectedExceptionClass != null ? new ExpectException(next, expectedExceptionClass) : next;
+        return expectedExceptionClass != null ? new ExpectAnamoly(next, expectedExceptionClass) : next;
     }
 
     /**

@@ -13,12 +13,12 @@ import static org.junit.Assert.fail;
  * Integration tests can be found in {@link org.junit.tests.running.methods.ExpectedTest}.
  * See e.g. {@link org.junit.tests.running.methods.ExpectedTest#expectsAssumptionViolatedException()}
  */
-public class ExpectExceptionTest {
+public class ExpectAnamolyTest {
 
     @Test
     public void whenExpectingAssumptionViolatedExceptionStatementsThrowingItShouldPass() {
         Statement delegate = new Fail(new AssumptionViolatedException("expected"));
-        ExpectException expectException = new ExpectException(delegate, AssumptionViolatedException.class);
+        ExpectAnamoly expectException = new ExpectAnamoly(delegate, AssumptionViolatedException.class);
 
         try {
             expectException.evaluate();
@@ -31,7 +31,7 @@ public class ExpectExceptionTest {
     @Test
     public void whenExpectingAssumptionViolatedExceptionStatementsThrowingSubclassShouldPass() {
         Statement delegate = new Fail(new AssumptionViolatedExceptionSubclass("expected"));
-        ExpectException expectException = new ExpectException(delegate, AssumptionViolatedException.class);
+        ExpectAnamoly expectException = new ExpectAnamoly(delegate, AssumptionViolatedException.class);
 
         try {
             expectException.evaluate();
@@ -44,7 +44,7 @@ public class ExpectExceptionTest {
     @Test
     public void whenExpectingAssumptionViolatedExceptionStatementsThrowingDifferentExceptionShouldFail() {
         Statement delegate = new Fail(new SomeException("not expected"));
-        ExpectException expectException = new ExpectException(delegate, AssumptionViolatedException.class);
+        ExpectAnamoly expectException = new ExpectAnamoly(delegate, AssumptionViolatedException.class);
 
         try {
             expectException.evaluate();
@@ -57,7 +57,7 @@ public class ExpectExceptionTest {
 
     @Test
     public void whenExpectingAssumptionViolatedExceptionStatementsPassingShouldFail() throws Exception {
-        ExpectException expectException = new ExpectException(new PassingStatement(), AssumptionViolatedException.class);
+        ExpectAnamoly expectException = new ExpectAnamoly(new PassingStatement(), AssumptionViolatedException.class);
 
         try {
             expectException.evaluate();

@@ -3,11 +3,11 @@ package org.junit.internal.runners.statements;
 import org.junit.internal.AssumptionViolatedException;
 import org.junit.runners.model.Statement;
 
-public class ExpectException extends Statement {
+public class ExpectAnamoly extends Statement {
     private final Statement next;
     private final Class<? extends Throwable> expected;
 
-    public ExpectException(Statement next, Class<? extends Throwable> expected) {
+    public ExpectAnamoly(Statement next, Class<? extends Throwable> expected) {
         this.next = next;
         this.expected = expected;
     }
